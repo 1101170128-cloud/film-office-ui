@@ -2046,7 +2046,13 @@
 
     <!-- Header Right -->
     <div class="header-right">
-      <button class="action-btn secondary" onclick="window.location.href='http://localhost:19000/model-panel'" style="padding:8px 16px;font-size:11px;background:rgba(0,212,255,0.1);border:1px solid var(--cyan);color:var(--cyan);cursor:pointer;border-radius:4px;margin-right:12px;">🔙 模型面板</button>
+      <select onchange="if(this.value){window.open(this.value,'_blank');this.value='';}" style="padding:8px 12px;background:rgba(0,212,255,0.1);border:1px solid var(--cyan);color:var(--cyan);cursor:pointer;border-radius:4px;margin-right:12px;font-size:11px;font-family:'Rajdhani',sans-serif;">
+        <option value="">🔙 跳转...</option>
+        <option value="http://localhost:19000/model-panel">📊 模型面板</option>
+        <option value="http://localhost:19000/memory-panel-v2">🧠 记忆面板</option>
+        <option value="http://localhost:19000/airport-command/">✈️ 机场指挥部</option>
+        <option value="http://localhost:19000/">🏠 Star Office</option>
+      </select>
       <button id="theme-toggle" onclick="toggleTheme()" style="padding:8px 12px;background:rgba(0,0,0,0.3);border:1px solid var(--border);color:var(--text);cursor:pointer;border-radius:4px;margin-right:12px;font-size:14px;" title="切换主题">🌙</button>
       <div class="header-stats">
         <div class="stat-item">

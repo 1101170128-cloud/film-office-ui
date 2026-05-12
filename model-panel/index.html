@@ -938,13 +938,8 @@
 
         <div class="restart-container">
             <button class="restart-btn" onclick="restartGateway()">SYSTEM REBOOT</button>
-            <select class="nav-select" onchange="if(this.value) window.open(this.value,'_blank');this.value='';" style="padding:6px 12px;background:rgba(0,0,0,0.4);border:1px solid var(--cp-border);border-radius:6px;color:var(--cp-text);font-family:'Rajdhani',sans-serif;font-size:13px;cursor:pointer;">
-                <option value="">📋 跳转面板...</option>
-                <option value="http://localhost:19000/">🏠 Star Office</option>
-                <option value="http://localhost:19000/memory-panel-v2">🧠 记忆面板 V2</option>
-                <option value="http://localhost:19000/magi-wiki">📖 Magi Wiki</option>
-                <option value="http://localhost:19000/airport-command/">✈️ 机场指挥部</option>
-            </select>
+            <a href="http://localhost:19000/memory-panel-v2" target="_blank" class="memory-btn">🧠 MEMORY PANEL v2</a>
+            <a href="http://localhost:19000/magi-wiki" target="_blank" class="wiki-btn"><span class="btn-text">📖 MAGI WIKI</span></a>
         </div>
 
         <div class="controls-bar">

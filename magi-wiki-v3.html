@@ -2049,9 +2049,9 @@
       <div style="position:relative;display:inline-block;margin-right:12px;z-index:100;">
         <button onclick="toggleJumpMenu()" style="padding:8px 12px;background:rgba(0,212,255,0.1);border:1px solid var(--cyan);color:var(--cyan);cursor:pointer;border-radius:4px;font-size:12px;font-family:'Rajdhani',sans-serif;display:flex;align-items:center;gap:6px;">🔙 跳转... <span style="font-size:10px;">▼</span></button>
         <div id="jump-menu" style="display:none;position:absolute;top:100%;right:0;margin-top:4px;background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.5);z-index:101;">
-          <a href="http://localhost:19000/model-panel" target="_blank" style="display:block;padding:10px 14px;color:var(--cyan);text-decoration:none;font-size:12px;border-bottom:1px solid var(--border);">📊 模型面板</a>
-          <a href="http://localhost:19000/memory-panel-v2" target="_blank" style="display:block;padding:10px 14px;color:var(--primary);text-decoration:none;font-size:12px;border-bottom:1px solid var(--border);">🧠 记忆面板</a>
-          <a href="http://localhost:19000/airport-command/" target="_blank" style="display:block;padding:10px 14px;color:var(--amber);text-decoration:none;font-size:12px;">✈️ 机场指挥部</a>
+          <a href="http://localhost:19000/model-panel" style="display:block;padding:10px 14px;color:var(--cyan);text-decoration:none;font-size:12px;border-bottom:1px solid var(--border);">📊 模型面板</a>
+          <a href="http://localhost:19000/memory-panel-v2" style="display:block;padding:10px 14px;color:var(--primary);text-decoration:none;font-size:12px;border-bottom:1px solid var(--border);">🧠 记忆面板</a>
+          <a href="http://localhost:19000/airport-command/" style="display:block;padding:10px 14px;color:var(--amber);text-decoration:none;font-size:12px;">✈️ 机场指挥部</a>
         </div>
       </div>
       <script>function toggleJumpMenu(){var m=document.getElementById('jump-menu');m.style.display=m.style.display==='none'?'block':'none';document.addEventListener('click',function(e){if(!e.target.closest('[onclick*=toggleJumpMenu]')&&!e.target.closest('#jump-menu')){document.getElementById('jump-menu').style.display='none';}},{once:true});}</script>

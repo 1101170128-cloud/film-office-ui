@@ -29,41 +29,6 @@
         }
         
         
-        /* Auto light/dark based on system preference */
-        @media (prefers-color-scheme: light) {
-            :root:not([data-theme="dark"]) {
-                --cp-bg: #f0f4f8;
-                --cp-bg-light: #e2e8f0;
-                --cp-surface: #ffffff;
-                --cp-border: #cbd5e1;
-                --cp-primary: #059669;
-                --cp-secondary: #db2777;
-                --cp-accent: #7c3aed;
-                --cp-info: #0284c7;
-                --cp-warning: #d97706;
-                --cp-text: #1e293b;
-                --cp-text-dim: #64748b;
-                --cp-text-bright: #0f172a;
-                --cp-glow: rgba(5, 150, 105, 0.2);
-                --cp-scanline: rgba(5, 150, 105, 0.05);
-                --cp-bg-blur: 8px;
-                /* RGB values for rgba() usage */
-                --cp-bg-rgb: 240, 244, 248;
-                --cp-surface-rgb: 255, 255, 255;
-                /* 搜索框白天模式 */
-                --cp-search-bg: rgba(255,255,255,0.8);
-                --cp-search-border: rgba(2,132,199,0.3);
-                --cp-search-shadow: rgba(2,132,199,0.15);
-                --cp-search-glow: rgba(2,132,199,0.08);
-                --cp-search-placeholder: rgba(100,116,139,0.6);
-                /* 文件夹标题白天模式 */
-                --cp-folder-bg: rgba(5,150,105,0.06);
-                --cp-folder-border: rgba(5,150,105,0.2);
-                --cp-folder-shadow: rgba(5,150,105,0.1);
-                --cp-folder-badge-bg: rgba(0,0,0,0.08);
-            }
-        }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {

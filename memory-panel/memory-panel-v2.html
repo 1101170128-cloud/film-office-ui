@@ -28,46 +28,6 @@
             --cp-surface-rgb: 30, 30, 38;
         }
         
-        :root[data-theme="light"] {
-            --cp-bg: #f0f4f8;
-            --cp-bg-light: #e2e8f0;
-            --cp-surface: #ffffff;
-            --cp-border: #cbd5e1;
-            --cp-primary: #059669;
-            --cp-secondary: #db2777;
-            --cp-accent: #7c3aed;
-            --cp-info: #0284c7;
-            --cp-warning: #d97706;
-            --cp-text: #1e293b;
-            --cp-text-dim: #64748b;
-            --cp-text-bright: #0f172a;
-            --cp-glow: rgba(5, 150, 105, 0.2);
-            --cp-scanline: rgba(5, 150, 105, 0.05);
-            --cp-bg-blur: 8px;
-            /* RGB values for rgba() usage */
-            --cp-bg-rgb: 240, 244, 248;
-            --cp-surface-rgb: 255, 255, 255;
-            /* 搜索框白天模式 */
-            --cp-search-bg: rgba(255,255,255,0.8);
-            --cp-search-border: rgba(2,132,199,0.3);
-            --cp-search-shadow: rgba(2,132,199,0.15);
-            --cp-search-glow: rgba(2,132,199,0.08);
-            --cp-search-placeholder: rgba(100,116,139,0.6);
-            /* 文件夹标题白天模式 */
-            --cp-folder-bg: rgba(5,150,105,0.06);
-            --cp-folder-border: rgba(5,150,105,0.2);
-            --cp-folder-shadow: rgba(5,150,105,0.1);
-            --cp-folder-badge-bg: rgba(0,0,0,0.08);
-            /* 记忆卡片白天模式 */
-            --cp-memory-bg: rgba(255,255,255,0.9);
-            --cp-memory-border: rgba(255,255,255,0.06);
-            --cp-memory-hover-bg: rgba(255,255,255,0.08);
-            /* 筛选按钮白天模式 */
-            --cp-filter-btn-bg: rgba(248,250,252,0.95);
-            --cp-filter-btn-border: rgba(2,132,199,0.3);
-            --cp-filter-btn-text: var(--cp-text-dim);
-            --cp-filter-btn-glow: rgba(2,132,199,0.15);
-        }
         
         /* Auto light/dark based on system preference */
         @media (prefers-color-scheme: light) {
@@ -133,31 +93,11 @@
             transition: opacity 0.3s ease;
         }
         
-        :root[data-theme="light"] body::before {
-            background:
-                linear-gradient(135deg, rgba(240,244,248, 0.85) 0%, rgba(226,232,240, 0.9) 100%),
-                url('https://images-assets.nasa.gov/image/as17-146-22294/as17-146-22294~large.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
         @keyframes flicker {
             0%, 100% { opacity: 1; }
             92% { opacity: 1; }
             93% { opacity: 0.8; }
             94% { opacity: 1; }
-        }
-        
-        @media (prefers-color-scheme: light) {
-            :root:not([data-theme="dark"]) body::before {
-                background:
-                    linear-gradient(135deg, rgba(240,244,248, 0.85) 0%, rgba(226,232,240, 0.9) 100%),
-                    url('https://images-assets.nasa.gov/image/as17-146-22294/as17-146-22294~large.jpg');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-            }
         }
         
         /* Scan line removed per user request */
@@ -645,7 +585,6 @@
             .main-content { grid-template-columns: 1fr; }
             .header-title { font-size: 28px; }
             .stats-grid { grid-template-columns: 1fr; }
-            #theme-toggle { padding: 8px 12px !important; font-size: 18px !important; display: inline-flex !important; }
         }
         
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -834,9 +773,6 @@
                     <option value="zh-TW">繁體中文</option>
                     <option value="en">English</option>
                 </select>
-                <button id="theme-toggle" onclick="toggleTheme()" style="padding: 8px 12px; background: rgba(0,0,0,0.4); border: 1px solid var(--cp-border); border-radius: 6px; color: var(--cp-text); font-family: 'Rajdhani', sans-serif; cursor: pointer; transition: all 0.3s ease;" title="切换主题">
-                    <span id="theme-icon">🌙</span>
-                </button>
                 <div id="minimax-usage" style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(0,10,15,0.5); border: 1px solid rgba(0,200,255,0.2); border-radius: 4px; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--cp-info);">
                     <span style="color: var(--cp-primary);">⌬</span>
                     <span id="minimax-status">Loading...</span>
@@ -1793,31 +1729,6 @@
             }
         }
         
-        // Theme toggle
-        function toggleTheme() {
-            const root = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            const currentTheme = root.getAttribute('data-theme');
-            
-            if (currentTheme === 'light') {
-                root.setAttribute('data-theme', 'dark');
-                icon.textContent = '🌙';
-                localStorage.setItem('memory-panel-theme', 'dark');
-            } else {
-                root.setAttribute('data-theme', 'light');
-                icon.textContent = '☀️';
-                localStorage.setItem('memory-panel-theme', 'light');
-            }
-        }
-        
-        // Load saved theme on page load
-        (function() {
-            const saved = localStorage.getItem('memory-panel-theme');
-            if (saved) {
-                document.documentElement.setAttribute('data-theme', saved);
-                document.getElementById('theme-icon').textContent = saved === 'light' ? '☀️' : '🌙';
-            }
-        })();
     </script>
 </body>
 </html><!-- test Thu Mar 26 11:55:30 CST 2026 -->

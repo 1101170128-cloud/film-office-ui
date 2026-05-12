@@ -23,6 +23,44 @@
       --text-dim: #7070a0;
       --text-bright: #ffffff;
     }
+    :root[data-theme="light"] {
+      --bg: #f0f4f8;
+      --bg-light: #e2e8f0;
+      --surface: #ffffff;
+      --surface2: #f1f5f9;
+      --border: #c8d6e5;
+      --primary: #00a855;
+      --primary-dim: rgba(0,168,85,0.1);
+      --primary-glow: rgba(0,168,85,0.2);
+      --secondary: #0277bd;
+      --accent: #7b1fa2;
+      --warning: #e65100;
+      --danger: #c62828;
+      --text: #1a1a2e;
+      --text-dim: #64748b;
+      --text-bright: #0a0a0e;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f0f4f8;
+        --bg-light: #e2e8f0;
+        --surface: #ffffff;
+        --surface2: #f1f5f9;
+        --border: #c8d6e5;
+        --primary: #00a855;
+        --primary-dim: rgba(0,168,85,0.1);
+        --primary-glow: rgba(0,168,85,0.2);
+        --secondary: #0277bd;
+        --accent: #7b1fa2;
+        --warning: #e65100;
+        --danger: #c62828;
+        --text: #1a1a2e;
+        --text-dim: #64748b;
+        --text-bright: #0a0a0e;
+      }
+      :root:not([data-theme="dark"]) body::before { display: none; }
+    }
+    :root[data-theme="light"] body::before { display: none; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -573,6 +611,7 @@
         <input type="text" id="search-input" placeholder="搜索文件名或模块..." onkeydown="if(event.key==='Enter')doSearch()">
       </div>
       <div class="topbar-right">
+        <button id="theme-toggle" onclick="toggleTheme()" style="padding:4px 10px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;color:var(--text);cursor:pointer;font-size:13px;margin-right:8px;" title="切换主题">🌙</button>
         <div class="status-dot"></div>
         <span>在线</span>
       </div>
@@ -1046,6 +1085,27 @@
 
   // Init
   loadDashboard();
+  function toggleTheme() {
+    const root = document.documentElement;
+    const icon = document.getElementById('theme-toggle');
+    const current = root.getAttribute('data-theme');
+    if (current === 'light') {
+      root.setAttribute('data-theme', 'dark');
+      icon.textContent = '🌙';
+      localStorage.setItem('airport-theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+      icon.textContent = '☀️';
+      localStorage.setItem('airport-theme', 'light');
+    }
+  }
+  (function() {
+    const saved = localStorage.getItem('airport-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      document.getElementById('theme-toggle').textContent = saved === 'light' ? '☀️' : '🌙';
+    }
+  })();
 </script>
 </body>
 </html>
